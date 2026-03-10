@@ -1,0 +1,13 @@
+{
+  "n_total": 246777,
+  "n_positive": 74135,
+  "n_negative": 172642,
+  "n_rbp": 88,
+  "n_overlap": 0,
+  "n_duplicates": 0,
+  "seq_length_min": 20,
+  "seq_length_max": 20,
+  "seq_length_mean": 20.0,
+  "n_bad_alphabet": 0,
+  "per_rbp_path": "/vol/space/rbns_analysis/results/validation_summary_rbns.tsv"
+}

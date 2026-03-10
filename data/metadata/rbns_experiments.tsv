@@ -1,0 +1,214 @@
+experiment_accession	target_name	control_accession	is_control	description
+ENCSR443NPK	CSDE1	ENCSR846FYP	false	RNA Bind-n-Seq (RBNS) pulldown experiment against CSDE1
+ENCSR642PJQ	SYNCRIP	ENCSR373XIN	false	RNA Bind-n-Seq (RBNS) pulldown experiment against SYNCRIP
+ENCSR021IWR	THUMPD1	ENCSR180GCW	false	RNA Bind-n-Seq (RBNS) pulldown experiment against THUMPD1
+ENCSR326HIV			true	RNA Bind-n-Seq (RBNS) input control experiment of RBM11
+ENCSR456IMV	TDRD10		false	RNA Bind-n-Seq (RBNS) pulldown experiment against TDRD10
+ENCSR614KXG	ZC3H18	ENCSR429WJF	false	RNA Bind-n-Seq (RBNS) pulldown experiment against ZC3H18
+ENCSR345PWR	RBM5	ENCSR782ZXU	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM5
+ENCSR605EEO	ZC3H10		false	RNA Bind-n-Seq (RBNS) pulldown experiment against ZC3H10
+ENCSR782ZXU			true	RNA Bind-n-Seq (RBNS) input control experiment of RBM5
+ENCSR446UHZ	RBM20		false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM20
+ENCSR079FDB	SF3B6		false	RNA Bind-n-Seq (RBNS) pulldown experiment against SF3B14
+ENCSR086YTW			true	RNA Bind-n-Seq (RBNS) input control experiment of RBM3
+ENCSR251CSO			true	RNA Bind-n-Seq (RBNS) input control experiment of ZFP36L1
+ENCSR387CDD	NSUN2	ENCSR879LDT	false	RNA Bind-n-Seq (RBNS) pulldown experiment against NSUN2
+ENCSR051WAN	PABPC3	ENCSR384MUT	false	RNA Bind-n-Seq (RBNS) pulldown experiment against PABPC3
+ENCSR429WJF			true	RNA Bind-n-Seq (RBNS) input control experiment of ZC3H18
+ENCSR890PDQ	HNRNPA2B1	ENCSR193UFP	false	RNA Bind-n-Seq (RBNS) pulldown experiment against HNRNPA2B1
+ENCSR234DYH			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of hnRNPF
+ENCSR394HHV			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of hnRNPD
+ENCSR881AMH			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of FUS
+ENCSR704XYB			true	RNA Bind-n-Seq (RBNS) input control experiment of MSI1
+ENCSR697KPL			true	RNA Bind-n-Seq (RBNS) input control experiment of IGF2BP2
+ENCSR564NVP			true	RNA Bind-n-Seq (RBNS) input control experiment of RBFOX2
+ENCSR915BDY	KHSRP		false	RNA Bind-n-Seq (RBNS) pulldown experiment against KHSRP
+ENCSR757IDL			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of MSI1
+ENCSR773QCC	PUF60	ENCSR474BVN	false	RNA Bind-n-Seq (RBNS) pulldown experiment against PUF60
+ENCSR416ZAE			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of SRSF10
+ENCSR005ZRL	DAZAP1	ENCSR206YLC	false	RNA Bind-n-Seq (RBNS) pulldown experiment against DAZAP1
+ENCSR373XIN			true	RNA Bind-n-Seq (RBNS) input control experiment of SYNCRIP
+ENCSR133EBP			true	RNA Bind-n-Seq (RBNS) input control experiment of HNRNPA1L2
+ENCSR199MJK	RBM11	ENCSR326HIV	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM11
+ENCSR929OLV	SRSF8	ENCSR693HGG	false	RNA Bind-n-Seq (RBNS) pulldown experiment against SRSF8
+ENCSR259BLT			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of RBM23
+ENCSR234LUY			true	RNA Bind-n-Seq (RBNS) input control experiment of SRSF4
+ENCSR275JFN	SRSF2	ENCSR694VQW	false	RNA Bind-n-Seq (RBNS) pulldown experiment against SRSF2
+ENCSR694VQW			true	RNA Bind-n-Seq (RBNS) input control experiment of SRSF2
+ENCSR960GMF			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of SRSF2
+ENCSR971BTX			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of ESRP1
+ENCSR775PWD			true	RNA Bind-n-Seq (RBNS) input control experiment of RBM23
+ENCSR954TYO	HNRNPL	ENCSR307EIC	false	RNA Bind-n-Seq (RBNS) pulldown experiment against HNRNPL
+ENCSR693HGG			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of SRSF8
+ENCSR082AKW	ESRP1	ENCSR236YBZ	false	RNA Bind-n-Seq (RBNS) pulldown experiment against ESRP1
+ENCSR368NMO	HNRNPK	ENCSR944GMN	false	RNA Bind-n-Seq (RBNS) pulldown experiment against HNRNPK
+ENCSR831ZFS			true	RNA Bind-n-Seq (RBNS) input control experiment of hnRNPC
+ENCSR973JRB			true	RNA Bind-n-Seq (RBNS) input control experiment of YBX2
+ENCSR252RIJ	SRSF4	ENCSR234LUY	false	RNA Bind-n-Seq (RBNS) pulldown experiment against SRSF4
+ENCSR759QKO	RBM25	ENCSR391IGH	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM25
+ENCSR845GNW	PUM1	ENCSR025XWZ	false	RNA Bind-n-Seq (RBNS) pulldown experiment against PUM1
+ENCSR575QYE	KHDRBS2	ENCSR564OYI	false	RNA Bind-n-Seq (RBNS) pulldown experiment against KHDRBS2
+ENCSR919USP	YBX2	ENCSR973JRB	false	RNA Bind-n-Seq (RBNS) pulldown experiment against YBX2
+ENCSR936LOF	FUS	ENCSR881AMH	false	RNA Bind-n-Seq (RBNS) pulldown experiment against FUS
+ENCSR063HQO	EWSR1	ENCSR015TOO	false	RNA Bind-n-Seq (RBNS) pulldown experiment against EWSR1
+ENCSR331BKR	RBM4	ENCSR990LWK	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM4
+ENCSR328PGZ	HNRNPH2	ENCSR143XOT	false	RNA Bind-n-Seq (RBNS) pulldown experiment against hnRNPH2
+ENCSR329RIP	MSI1	ENCSR704XYB	false	RNA Bind-n-Seq (RBNS) pulldown experiment against MSI1
+ENCSR588GYZ	IGF2BP2	ENCSR697KPL	false	RNA Bind-n-Seq (RBNS) pulldown experiment against IGF2BP2
+ENCSR488AUU	EIF3D	ENCSR790NTP	false	RNA Bind-n-Seq (RBNS) pulldown experiment against EIF3D
+ENCSR122MVN			true	RNA Bind-n-Seq (RBNS) input control experiment of DAZ3 and HNRNPCL1
+ENCSR843QMF	FUBP1	ENCSR965YGY	false	RNA Bind-n-Seq (RBNS) pulldown experiment against FUBP1
+ENCSR640ADB			true	RNA Bind-n-Seq (RBNS) input control experiment of CPEB1
+ENCSR064NOY	TIA1	ENCSR930IPS	false	RNA Bind-n-Seq (RBNS) pulldown experiment against TIA1
+ENCSR006QKZ	MBNL1	ENCSR070MLW	false	RNA Bind-n-Seq (RBNS) pulldown experiment against MBNL1
+ENCSR462HQR			true	RNA Bind-n-Seq (RBNS) input control experiment of RBMS3 and RBM4B
+ENCSR653ZTY	TROVE2		false	RNA Bind-n-Seq (RBNS) pulldown experiment against TROVE2
+ENCSR490PSZ			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of MBNL1
+ENCSR023ESV			true	RNA Bind-n-Seq (RBNS) input control experiment of RBFOX3
+ENCSR292HKC			true	RNA Bind-n-Seq (RBNS) input control experiment of RBM45 and RBM41
+ENCSR421UDF	RBFOX3	ENCSR023ESV	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBFOX3
+ENCSR548MAW			true	RNA Bind-n-Seq (RBNS) input control experiment of PCBP4
+ENCSR742YDK			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of RBFOX2
+ENCSR141NLX			true	RNA Bind-n-Seq (RBNS) input control experiment of hnRNPD
+ENCSR379HWF	RBM3	ENCSR086YTW	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM3
+ENCSR593LSP			true	RNA Bind-n-Seq (RBNS) input control experiment of ELAVL4
+ENCSR432LUH	EXOSC4	ENCSR471OLL	false	RNA Bind-n-Seq (RBNS) pulldown experiment against EXOSC4
+ENCSR171TTH	ELAVL4	ENCSR593LSP	false	RNA Bind-n-Seq (RBNS) pulldown experiment against ELAVL4
+ENCSR728SXZ	RC3H1	ENCSR360QVI	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RC3H1
+ENCSR588UHH			true	RNA Bind-n-Seq (RBNS) input control experiment of AKAP8L
+ENCSR772NFP			true	RNA Bind-n-Seq (RBNS) input control experiment of SNRPB2
+ENCSR268DJR			true	RNA Bind-n-Seq (RBNS) input control experiment of EIF4G2
+ENCSR767WJH			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of IGF2BP1/IMP1
+ENCSR866URJ			true	RNA Bind-n-Seq (RBNS) input control experiment of A1CF and ZFP36
+ENCSR566CVD			true	RNA Bind-n-Seq (RBNS) input control experiment of CNOT4 or ZCRB1
+ENCSR806UCE	CNOT4	ENCSR566CVD	false	RNA Bind-n-Seq (RBNS) pulldown experiment against CNOT4
+ENCSR073DSH	SRSF11	ENCSR418ZPZ	false	RNA Bind-n-Seq (RBNS) pulldown experiment against SRSF11
+ENCSR846FYP			true	RNA Bind-n-Seq (RBNS) input control experiment of CSDE1
+ENCSR143XOT			true	RNA Bind-n-Seq (RBNS) input control experiment of hnRNPH2
+ENCSR903NNW			true	RNA Bind-n-Seq (RBNS) input control experiment of RBM47
+ENCSR382CPM	XRN2	ENCSR968MTX	false	RNA Bind-n-Seq (RBNS) pulldown experiment against XRN2
+ENCSR471OLL			true	RNA Bind-n-Seq (RBNS) input control experiment of EXOSC4
+ENCSR180GCW			true	RNA Bind-n-Seq (RBNS) input control experiment of THUMPD1
+ENCSR968MTX			true	RNA Bind-n-Seq (RBNS) input control experiment of XRN2
+ENCSR958WXF	HNRNPA1L2	ENCSR133EBP	false	RNA Bind-n-Seq (RBNS) pulldown experiment against HNRNPA1L2
+ENCSR570AIV	ZFP36L1	ENCSR251CSO	false	RNA Bind-n-Seq (RBNS) pulldown experiment against ZFP36L1
+ENCSR391FEW	TRA2B	ENCSR373NTB	false	RNA Bind-n-Seq (RBNS) pulldown experiment against TRA2B
+ENCSR384MUT			true	RNA Bind-n-Seq (RBNS) input control experiment of PABPC3
+ENCSR297UTH	PPP1R10		false	RNA Bind-n-Seq (RBNS) pulldown experiment against PPP1R10
+ENCSR249GVR	ZFP36L2		false	RNA Bind-n-Seq (RBNS) pulldown experiment against ZFP36L2
+ENCSR755VBZ			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of TAF15
+ENCSR914PGB	SRSF5	ENCSR876NDK	false	RNA Bind-n-Seq (RBNS) pulldown experiment against SRSF5
+ENCSR539RTM	PCBP1	ENCSR837OWO	false	RNA Bind-n-Seq (RBNS) pulldown experiment against PCBP1
+ENCSR187FJB			true	RNA Bind-n-Seq (RBNS) input control experiment of SRSF10
+ENCSR894MDU			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of PUF60
+ENCSR744POX	SRSF10	ENCSR187FJB	false	RNA Bind-n-Seq (RBNS) pulldown experiment against SRSF10
+ENCSR006TPX	RBM22	ENCSR192FWS	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM22
+ENCSR175OMA	HNRNPD	ENCSR141NLX	false	RNA Bind-n-Seq (RBNS) pulldown experiment against hnRNPD
+ENCSR376SUZ	HNRNPF	ENCSR462ZJK	false	RNA Bind-n-Seq (RBNS) pulldown experiment against hnRNPF
+ENCSR373NTB			true	RNA Bind-n-Seq (RBNS) input control experiment of TRA2B
+ENCSR992NHR	CELF1	ENCSR466KMQ	false	RNA Bind-n-Seq (RBNS) pulldown experiment against CELF1
+ENCSR219WYU			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of CELF1
+ENCSR845RKH			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of IGF2BP2
+ENCSR879LDT			true	RNA Bind-n-Seq (RBNS) input control experiment of NSUN2
+ENCSR945YVY	EIF4H		false	RNA Bind-n-Seq (RBNS) pulldown experiment against EIF4H
+ENCSR441HLP	RBFOX2	ENCSR564NVP	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBFOX2
+ENCSR070MLW			true	RNA Bind-n-Seq (RBNS) input control experiment of MBNL1
+ENCSR258MXY			true	RNA Bind-n-Seq (RBNS) input control experiment of IGF2BP1/IMP1
+ENCSR883DFK			true	RNA Bind-n-Seq (RBNS) input control experiment of TRA2A
+ENCSR462ZJK			true	RNA Bind-n-Seq (RBNS) input control experiment of hnRNPF
+ENCSR466KMQ			true	RNA Bind-n-Seq (RBNS) input control experiment of CELF1
+ENCSR741ZPT	PTBP3		false	RNA Bind-n-Seq (RBNS) pulldown experiment against PTBP3
+ENCSR928XOW	IGF2BP1	ENCSR258MXY	false	RNA Bind-n-Seq (RBNS) pulldown experiment against IGF2BP1/IMP1
+ENCSR876NDK			true	RNA Bind-n-Seq (RBNS) input control experiment of SRSF5 or TAF15
+ENCSR454EFP			true	RNA Bind-n-Seq (RBNS) input control experiment of PTBP1/PTB3
+ENCSR526XUZ			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of hnRNPH2
+ENCSR236YBZ			true	RNA Bind-n-Seq (RBNS) input control experiment of ESRP1
+ENCSR697VZN	FUBP3	ENCSR490BSK	false	RNA Bind-n-Seq (RBNS) pulldown experiment against FUBP3
+ENCSR289FYJ			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of SRSF4
+ENCSR569UIU	HNRNPC	ENCSR831ZFS	false	RNA Bind-n-Seq (RBNS) pulldown experiment against hnRNPC
+ENCSR025XWZ			true	RNA Bind-n-Seq (RBNS) input control experiment of PUM1
+ENCSR334QCK	PABPN1L		false	RNA Bind-n-Seq (RBNS) pulldown experiment against PABPN1L
+ENCSR978BSJ			true	RNA Bind-n-Seq (RBNS) pulldown experiment against PABPN1L and KHSRP
+ENCSR934TDK	A1CF	ENCSR866URJ	false	RNA Bind-n-Seq (RBNS) pulldown experiment against A1CF
+ENCSR315VQD	ZFP36	ENCSR866URJ	false	RNA Bind-n-Seq (RBNS) pulldown experiment against ZFP36
+ENCSR369RLA	LIN28B	ENCSR094HGB	false	RNA Bind-n-Seq (RBNS) pulldown experiment against LIN28B
+ENCSR084YCO	CPEB1	ENCSR640ADB	false	RNA Bind-n-Seq (RBNS) pulldown experiment against CPEB1
+ENCSR741VUK	TRA2A	ENCSR883DFK	false	RNA Bind-n-Seq (RBNS) pulldown experiment against TRA2A
+ENCSR906EKN	ILF2	ENCSR391IGH	false	RNA Bind-n-Seq (RBNS) pulldown experiment against ILF2
+ENCSR474BVN			true	RNA Bind-n-Seq (RBNS) input control experiment of PUF60
+ENCSR673FLQ	PCBP2	ENCSR265XUT	false	RNA Bind-n-Seq (RBNS) pulldown experiment against PCBP2
+ENCSR724HZI	SRSF9	ENCSR927JUW	false	RNA Bind-n-Seq (RBNS) pulldown experiment against SRSF9
+ENCSR318HZC	SF1	ENCSR307EIC	false	RNA Bind-n-Seq (RBNS) pulldown experiment against SF1
+ENCSR264RVK	RBM47	ENCSR903NNW	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM47
+ENCSR548RVM	RBM6	ENCSR721PRM	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM6
+ENCSR142ZEQ			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of hnRNPC
+ENCSR600HIW	EIF4G2	ENCSR268DJR	false	RNA Bind-n-Seq (RBNS) pulldown experiment against EIF4G2
+ENCSR525PNM	RBM23	ENCSR775PWD	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM23
+ENCSR193UFP			true	RNA Bind-n-Seq (RBNS) input control experiment of HNRNPA2B1
+ENCSR065EMP			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of SRSF5
+ENCSR015TOO			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of EWSR1
+ENCSR944GMN			true	RNA Bind-n-Seq (RBNS) input control experiment of HNRNPK
+ENCSR827QYL	TAF15	ENCSR876NDK	false	RNA Bind-n-Seq (RBNS) pulldown experiment against TAF15
+ENCSR599EMY			true	RNA Bind-n-Seq (RBNS) input control experiment of HNRNPDL and RBM15B
+ENCSR637HFY	RBM41	ENCSR292HKC	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM41
+ENCSR311QXT			true	RNA Bind-n-Seq (RBNS) input control experiment of RBMS2
+ENCSR837OWO			true	RNA Bind-n-Seq (RBNS) input control experiment of PCBP1 and SECP43
+ENCSR094HGB			true	RNA Bind-n-Seq (RBNS) input control experiment of LIN28B
+ENCSR619AIJ			true	RNA Bind-n-Seq (RBNS) input control experiment of IGF2BP3
+ENCSR110GHL	AKAP8L	ENCSR588UHH	false	RNA Bind-n-Seq (RBNS) pulldown experiment against AKAP8L
+ENCSR206YLC			true	RNA Bind-n-Seq (RBNS) input control experiment of DAZAP1
+ENCSR558RBK	SAFB2	ENCSR537ATS	false	RNA Bind-n-Seq (RBNS) pulldown experiment against SAFB2
+ENCSR472KKU	APOBEC3C		false	RNA Bind-n-Seq (RBNS) pulldown experiment against APOBEC3C
+ENCSR655NWZ	RBM15B	ENCSR599EMY	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM15B
+ENCSR055HDN	HNRNPDL	ENCSR599EMY	false	RNA Bind-n-Seq (RBNS) pulldown experiment against HNRNPDL
+ENCSR990LWK			true	RNA Bind-n-Seq (RBNS) input control experiment of RALYL and RBM4
+ENCSR307EIC			true	RNA Bind-n-Seq (RBNS) input control experiment of SF1 and HNRNPL
+ENCSR278BSO			true	RNA Bind-n-Seq (RBNS) input control experiment of NUPL2 and PRR3
+ENCSR191PTZ	PRR3	ENCSR278BSO	false	RNA Bind-n-Seq (RBNS) pulldown experiment against PRR3
+ENCSR335RUM			true	RNA Bind-n-Seq (RBNS) input control experiment of KHDRBS3 and SNRPA
+ENCSR418ZPZ			true	RNA Bind-n-Seq (RBNS) input control experiment of SRSF11
+ENCSR769AEI	PCBP4	ENCSR548MAW	false	RNA Bind-n-Seq (RBNS) pulldown experiment against PCBP4
+ENCSR497LIF	BOLL	ENCSR821CTW	false	RNA Bind-n-Seq (RBNS) pulldown experiment against BOLL
+ENCSR834CED	NOVA1	ENCSR535HJE	false	RNA Bind-n-Seq (RBNS) pulldown experiment against NOVA1
+ENCSR535HJE			true	RNA Bind-n-Seq (RBNS) input control experiment of NOVA1
+ENCSR626INQ	RBM45	ENCSR292HKC	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM45
+ENCSR391IGH			true	RNA Bind-n-Seq (RBNS) input control experiment of RBM25 and ILF2
+ENCSR490BSK			true	RNA Bind-n-Seq (RBNS) input control experiment of FUBP3 and HNRNPA0
+ENCSR192FWS			true	RNA Bind-n-Seq (RBNS) input control experiment of RBM22
+ENCSR419XDN	TRNAU1AP		false	RNA Bind-n-Seq (RBNS) pulldown experiment against SECP43
+ENCSR721PRM			true	RNA Bind-n-Seq (RBNS) input control experiment of RBM6 and RBM24
+ENCSR821CTW			true	RNA Bind-n-Seq (RBNS) input control experiment of BOLL
+ENCSR742AEU	RBM24	ENCSR721PRM	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM24
+ENCSR492CFG	RBMS2	ENCSR311QXT	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBMS2
+ENCSR170PBM	HNRNPA0	ENCSR490BSK	false	RNA Bind-n-Seq (RBNS) pulldown experiment against HNRNPA0
+ENCSR205HMN	ZCRB1	ENCSR566CVD	false	RNA Bind-n-Seq (RBNS) pulldown experiment against ZCRB1
+ENCSR915CDT	HNRNPCL1	ENCSR122MVN	false	RNA Bind-n-Seq (RBNS) pulldown experiment against HNRNPCL1
+ENCSR449VKY	DAZ3	ENCSR122MVN	false	RNA Bind-n-Seq (RBNS) pulldown experiment against DAZ3
+ENCSR951YCV	SFPQ	ENCSR265XUT	false	RNA Bind-n-Seq (RBNS) pulldown experiment against SFPQ
+ENCSR466JPT	TARDBP	ENCSR927JUW	false	RNA Bind-n-Seq (RBNS) pulldown experiment against TARDBP
+ENCSR927JUW			true	RNA Bind-n-Seq (RBNS) input control experiment of TARDBP and SRSF9
+ENCSR497VCL	UNK	ENCSR424VRD	false	RNA Bind-n-Seq (RBNS) pulldown experiment against UNK
+ENCSR583NVI	KHDRBS3	ENCSR335RUM	false	RNA Bind-n-Seq (RBNS) pulldown experiment against KHDRBS3
+ENCSR229VBP	RALYL	ENCSR990LWK	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RALYL
+ENCSR965YGY			true	RNA Bind-n-Seq (RBNS) input control experiment of FUBP1
+ENCSR164XGH	IGF2BP3	ENCSR619AIJ	false	RNA Bind-n-Seq (RBNS) pulldown experiment against IGF2BP3
+ENCSR537ATS			true	RNA Bind-n-Seq (RBNS) input control experiment of SAFB2 and ZRANB2
+ENCSR474NYR	SUCLG1	ENCSR989YKV	false	RNA Bind-n-Seq (RBNS) pulldown experiment against SUCLG1
+ENCSR905BJK	RBM4B	ENCSR462HQR	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBM4B
+ENCSR189MAB	XRCC6	ENCSR790NTP	false	RNA Bind-n-Seq (RBNS) pulldown experiment against XRCC6
+ENCSR927QJQ	ZRANB2	ENCSR537ATS	false	RNA Bind-n-Seq (RBNS) pulldown experiment against ZRANB2
+ENCSR167ZZB	SNRPA	ENCSR335RUM	false	RNA Bind-n-Seq (RBNS) pulldown experiment against SNRPA
+ENCSR360QVI			true	RNA Bind-n-Seq (RBNS) input control experiment of RC3H1
+ENCSR564OYI			true	RNA Bind-n-Seq (RBNS) input control experiment of KHDRBS2
+ENCSR989YKV			true	RNA Bind-n-Seq (RBNS) input control experiment of SUCLG1
+ENCSR102MQN	NUPL2	ENCSR278BSO	false	RNA Bind-n-Seq (RBNS) pulldown experiment against NUPL2
+ENCSR721BBI			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of RBM47
+ENCSR606JGJ	SNRPB2	ENCSR772NFP	false	RNA Bind-n-Seq (RBNS) pulldown experiment against SNRPB2
+ENCSR790NTP			true	RNA Bind-n-Seq (RBNS) input control experiment of EIF3D and XRCC6
+ENCSR224KSF	RBMS3	ENCSR462HQR	false	RNA Bind-n-Seq (RBNS) pulldown experiment against RBMS3
+ENCSR265XUT			true	RNA Bind-n-Seq (RBNS) input control experiment of PCBP2 and SFPQ
+ENCSR424VRD			true	RNA Bind-n-Seq (RBNS) input control experiment of UNK
+ENCSR335JQK	ZNF326	ENCSR043GXN	false	RNA Bind-n-Seq (RBNS) pulldown experiment against ZNF326
+ENCSR043GXN			true	RNA Bind-n-Seq (RBNS) input control experiment of ZNF326
+ENCSR930IPS			true	RNA Bind-n-Seq (RBNS) input control experiment of TIA1
+ENCSR118LLV			true	RNA Bind-n-Seq (RBNS) mock pulldown control experiment of TRA2A

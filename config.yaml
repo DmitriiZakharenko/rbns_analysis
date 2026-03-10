@@ -1,0 +1,17 @@
+# RBNS pipeline configuration.
+# See config.example.yaml for descriptions.
+
+min_R: 1.5
+top_k_positive: 1000
+n_negative_per_rbp: 2000
+pseudo_count_input: 1
+
+paths:
+  metadata: "data/metadata"
+  raw: "data/raw"
+  processed: "data/processed"
+  results: "results"
+  logs: "data/logs"
+
+encode_api_base: "https://www.encodeproject.org"
+request_delay_seconds: 0.2
