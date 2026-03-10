@@ -1,0 +1,32 @@
+# Example configuration for the RBNS pipeline.
+# Copy to config.yaml and adjust as needed.
+
+# Protein concentration (nM) used to define positives
+concentration_for_positives: 320  # or 1300
+
+# Minimum enrichment R = f_pulldown / f_input for a sequence
+min_R: 1.5
+
+# Number of positive sequences per RBP (top by R)
+top_k_positive: 1000
+
+# Number of negative sequences per RBP (after excluding positives from input)
+n_negative_per_rbp: 2000
+
+# Negative-to-positive ratio (if set, n_negative = top_k_positive * ratio)
+# negative_positive_ratio: 2
+
+# Pseudo-count for sequences absent in input (avoids R=inf)
+pseudo_count_input: 1
+
+# Paths (relative to project root)
+paths:
+  metadata: "data/metadata"
+  raw: "data/raw"
+  processed: "data/processed"
+  results: "results"
+  logs: "data/logs"
+
+# ENCODE API (request rate limiting)
+encode_api_base: "https://www.encodeproject.org"
+request_delay_seconds: 0.2

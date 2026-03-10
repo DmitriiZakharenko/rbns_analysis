@@ -1,0 +1,32 @@
+# Data (large or regeneratable)
+data/raw/
+data/processed/
+data/logs/
+
+# Optional: uncomment to avoid committing result tables (can be large)
+# results/*.tsv
+# results/tables/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+.venv/
+env/
+*.egg-info/
+.eggs/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+*.swp
+*.swo
+
+# Local overrides (keep config.example.yaml in repo)
+config.local.yaml
+
+# Upload archives
+*.tar.gz
