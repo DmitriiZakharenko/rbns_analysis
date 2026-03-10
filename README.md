@@ -128,7 +128,7 @@ results/
 
 ## Notes on Reproducibility
 
-Raw FASTQ files (~150 GB total) are not included in this repository.
+Raw FASTQ files (~260 GB total) are not included in this repository.
 To reproduce from scratch, run the full pipeline starting from step 1.
 Step 2 downloads all required FASTQ files directly from ENCODE.
 
