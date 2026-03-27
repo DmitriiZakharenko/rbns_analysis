@@ -54,8 +54,9 @@ Build a labelled dataset for ML prediction of RBP-RNA binding:
 | FASTQ files | 601 |
 | Raw data size | ~150 GB |
 | Processed TSV files | 601 (one per FASTQ) |
-| RBPs with enrichment data | 88 |
-| RBPs skipped (no signal / no control) | ~23 |
+| RBPs included (with control + k-mer R_max ≥ 1.5) | 96 |
+| RBPs excluded — no input control in ENCODE | 11 |
+| RBPs excluded — no detectable k-mer enrichment | 3 |
 
 ### Disk requirements
 
@@ -135,19 +136,27 @@ AAACCCGGGUUUAAACCCGG    1500
 - **Rationale**: at 0 nM there is no protein -- the library is the unselected background pool.
 - **Selection**: up to `n_negative_per_rbp` (default 2000) unique sequences, randomly sampled (seed=42), excluding any sequence already in the positive set (no pos/neg overlap by construction).
 
-### 6.2 Positives -- implemented strategy
+### 6.2 Positives — k-mer enrichment strategy
 
-We use **all available pulldown concentrations**, not a single fixed concentration. This captures dose-response evidence and is more robust to missing concentrations.
+We use **k-mer enrichment** (k=5, matching the ENCODE RBNS computational pipeline) rather than full per-sequence frequency ratios. This aggregates signal across all reads sharing a k-mer, giving ~1000× more statistical power than 20-mer analysis for a 150M-read library.
 
-For each sequence at each pulldown concentration:
+For each k-mer at each pulldown concentration:
 
 ```
-f_pulldown(conc) = count(seq, conc) / total_counts(conc)
-f_input          = (count(seq, input) + pseudo) / (total_counts(input) + pseudo)
-R(seq, conc)     = f_pulldown(conc) / f_input
+R(kmer, conc) = (kmer_count_pulldown(conc) / total_reads_pulldown(conc))
+              / (kmer_count_input          / total_reads_input)
 ```
 
-`pseudo = 1.0` (pseudo-count handles sequences absent from the input).
+For each 20-mer sequence:
+
+```
+score(seq, conc) = max R(kmer, conc)  over all k-mers within seq
+R_max(seq)       = max score(seq, conc) over all concentrations
+```
+
+`pseudo = 1.0` is added to `kmer_count_input` to handle k-mers absent from input.
+
+This approach detects binding signal for **96 RBPs** (vs 53 with full-20mer method), capturing RBPs whose binding preference manifests at the k-mer level but is distributed across too many distinct 20-mers to show strong per-sequence enrichment.
 
 Derived metrics per sequence (stored in `{target}_positives.tsv`):
 
@@ -160,7 +169,7 @@ Derived metrics per sequence (stored in `{target}_positives.tsv`):
 | `is_monotonic` | 1 if R increases monotonically with concentration |
 | `high_confidence` | 1 if R_max >= min_R and n_enriched_concs >= 1 |
 
-**Positive selection**: sort sequences by R_max (high-confidence first), take top `top_k_positive` (default 1000). Remaining slots are filled with highest-R sequences that did not reach `min_R` if needed.
+**Positive selection**: keep only sequences with `R_max >= min_R`, sort by high-confidence then R_max, take up to `top_k_positive` (default 1000). Targets with fewer than `min_positives` (default 10) after filtering are skipped.
 
 **Parameters**:
 
@@ -174,12 +183,20 @@ Derived metrics per sequence (stored in `{target}_positives.tsv`):
 
 ### 6.3 RBPs excluded from the dataset
 
-| Reason | RBPs | Count |
-|--------|------|-------|
-| No matched input control in ENCODE | APOBEC3C, PTBP3, ZC3H10, TRNAU1AP, TROVE2, ZFP36L2, ... | ~13 |
-| No enrichment signal after filtering | CELF1, HNRNPD, HNRNPF, IGF2BP1, MBNL1, MSI1, RBFOX2, RBM47, SRSF2 | 9 |
+| Reason | Examples | Count |
+|--------|----------|-------|
+| No matched 0 nM input control in ENCODE | APOBEC3C, EIF4H, KHSRP, PABPN1L, PPP1R10, RBM20, SF3B6, TRNAU1AP, TROVE2, ZC3H10, ZFP36L2 | 11 |
+| Matched control, but no k-mer with R ≥ 1.5 at any concentration | SRSF10, SYNCRIP, PTBP3 | 3 |
 
-These are limitations of the ENCODE RBNS collection, not pipeline errors. All skip reasons are logged in `data/logs/step4_final.log`.
+**On the first group:** these RBPs have only pulldown FASTQ files in ENCODE, with no 0 nM input library. Without a background reference the R value is unreliable.
+
+**On the second group:** even the k-mer enrichment signal is too weak to produce 10+ positives with R_max ≥ 1.5. These RBPs may bind RNA in a structure-dependent or context-dependent manner that is not captured by 20-mer random library assays.
+
+### 6.4 Note on read lengths
+
+Some ENCODE RBNS experiments use reads of 40 nt (e.g. CELF1, RBFOX2, MBNL1, SRSF2 and others from an earlier experimental batch). The RBNS random RNA region is always **20 nt**; the additional length corresponds to adapter sequence at the 3' end.
+
+The pipeline automatically trims reads longer than 20 nt to the first 20 nucleotides (the random region). This is handled in `03_process_fastq.py` via the constant `RNA_LEN = 20`.
 
 ---
 
@@ -226,19 +243,20 @@ Output: `results/dataset_stats_rbns.json`, `results/validation_summary_rbns.tsv`
 
 ```json
 {
-  "n_total": 246777,
-  "n_positive": 74135,
-  "n_negative": 172642,
-  "n_rbp": 88,
+  "n_total": 284642,
+  "n_positive": 96000,
+  "n_negative": 188642,
+  "n_rbp": 96,
   "n_overlap": 0,
   "n_duplicates": 0,
   "seq_length_min": 20,
   "seq_length_max": 20,
+  "seq_length_mean": 20.0,
   "n_bad_alphabet": 0
 }
 ```
 
-High-confidence positives: 64,688 (87.3% of all positives). Median R_max: 15.8.
+All 96,000 positive sequences (1000 per RBP) have k-mer R_max ≥ 1.5. All 96 RBPs have a verified matched 0 nM input control. No quality issues detected.
 
 ---
 

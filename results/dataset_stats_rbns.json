@@ -1,8 +1,8 @@
 {
-  "n_total": 246777,
-  "n_positive": 74135,
-  "n_negative": 172642,
-  "n_rbp": 88,
+  "n_total": 284642,
+  "n_positive": 96000,
+  "n_negative": 188642,
+  "n_rbp": 96,
   "n_overlap": 0,
   "n_duplicates": 0,
   "seq_length_min": 20,

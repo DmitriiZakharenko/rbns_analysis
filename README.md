@@ -14,19 +14,25 @@ End-to-end pipeline for building an RBP-RNA binding dataset from
 | Metric | Value |
 |--------|-------|
 | FASTQ files processed | 601 |
-| RBPs with binding data | **88** |
-| Total examples | **246,777** |
-| Positives (binding_label=1) | **74,135** (30.1%) |
-| Negatives (binding_label=0) | **172,642** (69.9%) |
-| High-confidence positives | **64,688** (87.3% of positives) |
-| Median R_max (enrichment) | **15.8** |
+| RBPs with validated binding data | **96** |
+| Total examples | **284,642** |
+| Positives (binding_label=1) | **96,000** (33.7%) |
+| Negatives (binding_label=0) | **188,642** (66.3%) |
+| High-confidence positives | **96,000** (100%; all R_max ≥ 1.5) |
+| Median R_max (k-mer enrichment score) | **3.69** |
+| Mean R_max | **6.43** |
+| Min / max R_max (positives) | **1.61** / **51.6** |
 | Sequence length | 20 nt (uniform) |
 | Alphabet | RNA (A, C, G, U) |
 | Duplicates / label overlaps | 0 / 0 |
 
-RBPs excluded:
-- **9 RBPs** — no enrichment signal after filtering (CELF1, HNRNPD, HNRNPF, IGF2BP1, MBNL1, MSI1, RBFOX2, RBM47, SRSF2)
-- **Several RBPs** — no matched input control library in ENCODE (e.g. APOBEC3C, PTBP3)
+Of 110 RBPs with FASTQ data in ENCODE:
+- **96 RBPs** have a matched 0 nM input control and detectable k-mer enrichment → included.
+- **11 RBPs** have no matched input control in ENCODE → excluded (R cannot be computed reliably).
+- **3 RBPs** have a matched control but no k-mer with R ≥ 1.5 at any concentration → excluded.
+
+**Note on read lengths**: some ENCODE RBNS experiments use 40 nt reads (e.g. CELF1, RBFOX2, MBNL1).
+The random RNA region is always 20 nt; the pipeline trims longer reads to 20 nt automatically.
 
 See `results/dataset_stats_rbns.json` and `results/validation_summary_rbns.tsv` for full statistics.
 
@@ -69,7 +75,7 @@ Configuration: `config.yaml`.
 | 1 | `01_fetch_encode_metadata.py` | Fetch experiment and file metadata from ENCODE API |
 | 2 | `02_download_fastq.py` | Download FASTQ files from ENCODE |
 | 3 | `03_process_fastq.py` | Convert FASTQ to sequence count TSV (T to U, min_count=2) |
-| 4 | `04_compute_enrichment.py` | Compute R = f_pulldown / f_input across all concentrations |
+| 4 | `04_compute_enrichment.py` | K-mer enrichment (default k=5) and top positives per RBP; `--mode sequence` for per-20-mer R |
 | 5 | `05_build_ml_dataset.py` | Merge positives and sample negatives per RBP |
 | 6 | `06_clean_dataset.py` | Drop missing values, fix types, remove duplicates |
 | 7 | `07_validate_dataset.py` | Quality checks, label distribution, stats JSON |
@@ -78,14 +84,23 @@ Configuration: `config.yaml`.
 
 ## Enrichment Strategy
 
-For each RBP and each pulldown concentration:
+For each RBP, each pulldown concentration, and each k-mer (k=5 by default):
 
 ```
-R(seq, conc) = f_pulldown(conc) / f_input
-R_max(seq)   = max R across all concentrations
+R(kmer, conc) = (kmer_count_pulldown / total_reads_pulldown)
+              / (kmer_count_input    / total_reads_input)
+
+score(seq, conc) = max R(kmer, conc)  over all k-mers in seq
+R_max(seq)       = max score(seq, conc) over all concentrations
 ```
 
-Positives: sequences with `R_max >= min_R` (default 1.5), top `top_k_positive` (default 1000) per RBP.
+This matches the ENCODE RBNS computational pipeline (Lambert et al. 2020):
+aggregating reads across all sequences sharing a k-mer gives far more
+statistical power than per-sequence frequency ratios.
+
+For each 20-mer sequence, `R_max = max over concentrations of [max k-mer R within the sequence]`.
+Positives: sequences with `R_max >= min_R` (default 1.5), up to `top_k_positive` (default 1000) per RBP.
+RBPs with fewer than `min_positives` (default 10) such sequences are excluded.
 
 Quality metrics per sequence:
 

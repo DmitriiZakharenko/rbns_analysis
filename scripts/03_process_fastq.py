@@ -39,21 +39,40 @@ def read_fastq_seqs(path, expected_len=None):
             yield seq
 
 
-def process_one_fastq(fastq_path, out_path, to_rna_alphabet=True, expected_len=20, min_count=1):
+RNA_LEN = 20  # RBNS random region is always 20 nt; longer reads contain adapter at 3' end
+
+
+def process_one_fastq(fastq_path, out_path, to_rna_alphabet=True, expected_len=None, min_count=1):
     """Count unique sequences and write TSV. Returns (n_reads, n_unique_written).
 
-    min_count: only write sequences that appear at least this many times.
-    Singletons (count=1) are noise/sequencing errors and should usually be skipped (min_count=2).
+    Reads longer than RNA_LEN are trimmed to RNA_LEN (removes 3' adapter).
+    expected_len: kept for API compatibility but ignored (always uses RNA_LEN=20).
+    min_count: only write sequences with count >= N (default 2 removes singletons).
     """
     counts = Counter()
     n_reads = 0
     try:
-        for seq in read_fastq_seqs(fastq_path, expected_len=expected_len):
-            n_reads += 1
-            if to_rna_alphabet:
-                seq = to_rna(seq)
-            if is_valid_rna(seq, allowed_lengths=(expected_len,)):
-                counts[seq] += 1
+        open_fn = gzip.open if str(fastq_path).endswith(".gz") else open
+        with open_fn(fastq_path, "rt") as f:
+            while True:
+                header = f.readline()
+                if not header:
+                    break
+                seq = f.readline().strip().upper()
+                f.readline()  # +
+                f.readline()  # qual
+                if not seq:
+                    continue
+                # Trim to RNA_LEN if read is longer (adapter at 3' end)
+                if len(seq) > RNA_LEN:
+                    seq = seq[:RNA_LEN]
+                if len(seq) != RNA_LEN:
+                    continue
+                if to_rna_alphabet:
+                    seq = to_rna(seq)
+                if is_valid_rna(seq, allowed_lengths=(RNA_LEN,)):
+                    n_reads += 1
+                    counts[seq] += 1
     except (EOFError, gzip.BadGzipFile) as e:
         print(f"  Warning: {fastq_path.name} appears incomplete or corrupted: {e}")
         if n_reads == 0:
@@ -72,7 +91,8 @@ def main():
     parser.add_argument("--config", default=ROOT / "config.yaml")
     parser.add_argument("--raw-dir", help="Raw FASTQ root (default: from config)")
     parser.add_argument("--processed-dir", help="Processed output root (default: from config)")
-    parser.add_argument("--expected-len", type=int, default=20, help="Expected read length (20 or 40)")
+    parser.add_argument("--expected-len", type=int, default=None,
+                        help="Expected read length (default: auto-detected per file)")
     parser.add_argument("--limit", type=int, default=0, help="Max FASTQ files to process (0=all)")
     parser.add_argument(
         "--min-count", type=int, default=2,

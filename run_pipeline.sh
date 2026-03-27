@@ -74,7 +74,7 @@ run_step 3 "Process FASTQ -> sequence counts" \
     python3 scripts/03_process_fastq.py --min-count 2
 
 run_step 4 "Compute enrichment R(seq) across all concentrations" \
-    python3 scripts/04_compute_enrichment.py --min-pulldown-count 2 --min-enriched-concs 1
+    python3 scripts/04_compute_enrichment.py --mode kmer --kmer-size 5 --min-pulldown-count 2 --min-enriched-concs 1 --min-positives 10
 
 run_step 5 "Build ML dataset" \
     python3 scripts/05_build_ml_dataset.py
