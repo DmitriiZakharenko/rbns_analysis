@@ -79,6 +79,7 @@ Configuration: `config.yaml`.
 | 5 | `05_build_ml_dataset.py` | Merge positives and sample negatives per RBP |
 | 6 | `06_clean_dataset.py` | Drop missing values, fix types, remove duplicates |
 | 7 | `07_validate_dataset.py` | Quality checks, label distribution, stats JSON |
+| 8 *(optional)* | `08_add_protein_sequences.py` | Add `protein_sequence` column from UniProt API (run with internet access) |
 
 ---
 
@@ -131,13 +132,16 @@ results/
 | Column | Description |
 |--------|-------------|
 | `target_name` | RBP name (e.g. `IGF2BP2`) |
+| `protein_sequence` | Canonical UniProt amino-acid sequence — **added by step 8** (absent until `08_add_protein_sequences.py` is run) |
 | `rna_sequence` | 20 nt RNA sequence (A/C/G/U) |
 | `binding_label` | 1 = positive, 0 = negative |
 | `source` | `enriched` or `background` |
-| `R_max` | Maximum enrichment ratio (positives only) |
+| `R_max` | Max k-mer enrichment ratio across concentrations (positives only; NaN for negatives) |
 | `n_enriched_concs` | Concentrations with R >= min_R |
-| `n_concs_measured` | Total concentrations measured |
-| `high_confidence` | 1 if high-confidence positive |
+| `n_concs_measured` | Total concentrations where sequence was observed (min_count ≥ 2) |
+| `high_confidence` | 1 if R_max ≥ min_R and n_enriched_concs ≥ 1 |
+
+**Note on R_max**: for 83/96 RBPs all 1000 positives share the same R_max value (the enrichment score of the dominant binding k-mer). R_max is a reliable confidence indicator for the positive threshold but is not a discriminating feature between positives within a single RBP.
 
 ---
 

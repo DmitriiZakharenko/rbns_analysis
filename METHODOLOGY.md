@@ -171,6 +171,8 @@ Derived metrics per sequence (stored in `{target}_positives.tsv`):
 
 **Positive selection**: keep only sequences with `R_max >= min_R`, sort by high-confidence then R_max, take up to `top_k_positive` (default 1000). Targets with fewer than `min_positives` (default 10) after filtering are skipped.
 
+**Known limitation — R_max ceiling effect**: for 83 of 96 RBPs, all 1000 positive sequences share the *same* R_max value. This happens because R_max = max R over all k-mers in the sequence, and when there is one dominant binding k-mer (e.g. UUUUU for HNRNPC) virtually all top sequences contain it and receive that k-mer's enrichment score. As a result, R_max is effectively a binary indicator of "contains the binding k-mer" and does **not** discriminate between positive sequences within a single RBP. It remains a valid confidence threshold for defining the positive set, but should not be used as a continuous feature in ML models trained per-RBP.
+
 **Parameters**:
 
 | Parameter | Value | Description |
@@ -208,11 +210,13 @@ For each RBP with a `{target}_positives.tsv` file:
 
 1. Load positive sequences (up to `top_k_positive`).
 2. Load the input (0 nM) library; exclude positive sequences from the pool.
-3. Random-sample up to `n_negative_per_rbp` negatives (seed=42).
+3. Random-sample up to `n_negative_per_rbp` negatives (seed=42, `random.shuffle` — reproducible).
 4. Append rows to the dataset with columns:
    `target_name`, `rna_sequence`, `binding_label`, `source`, `R_max`, `n_enriched_concs`, `n_concs_measured`, `high_confidence`.
 
 5. Shuffle all rows (seed=42) and write to `results/ml_dataset_rbns.tsv`.
+
+**Note on negative counts**: six RBPs end up with fewer than 2000 negatives (NSUN2: 600, SUCLG1: 720, PCBP4: 1660, PRR3/NUPL2: 1843, IGF2BP3: 1976). This is because their shared 0 nM control experiments have smaller processed input pools (shallow sequencing depth or low unique-sequence diversity in those libraries). The pipeline takes all available unique sequences up to the target count.
 
 **Script**: `06_clean_dataset.py`
 
@@ -260,7 +264,24 @@ All 96,000 positive sequences (1000 per RBP) have k-mer R_max ≥ 1.5. All 96 RB
 
 ---
 
-## 9. Code and File Structure
+## 9. Protein Sequences (optional step 8)
+
+The final dataset (`ml_dataset_rbns_clean.tsv`) currently contains **no `protein_sequence` column** because the ENCODE API only provides target gene names, not amino-acid sequences. Script `08_add_protein_sequences.py` resolves this:
+
+- Queries the **UniProt REST API** (`reviewed:true`, organism 9606) by gene name for each of the 96 RBPs.
+- Caches results in `data/metadata/protein_sequences_cache.json` (re-run safe).
+- Inserts a `protein_sequence` column after `target_name` in the output TSV.
+- Run from a machine with internet access (the VM or your workstation):
+
+```bash
+python scripts/08_add_protein_sequences.py
+```
+
+**Important caveat**: UniProt returns the *canonical full-length* human protein sequence. The ENCODE RBNS experiments were performed with recombinant proteins of unspecified construct length (some may be RNA-binding-domain-only constructs). Using the full-length sequence is the standard and reproducible choice; keep this in mind when comparing sequence features across datasets.
+
+---
+
+## 10. Code and File Structure
 
 ```
 rbns_analysis/
@@ -304,7 +325,7 @@ rbns_analysis/
 
 ---
 
-## 10. References
+## 11. References
 
 | Resource | URL |
 |----------|-----|
